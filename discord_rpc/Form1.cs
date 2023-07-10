@@ -15,9 +15,10 @@ namespace discord_rpc
     public partial class Form1 : Form
     {
         public DiscordRpcClient client;
-		public string nadpis = "";
-		public string popis = "";
-		public string id = "your_id_here";
+	public string header = "";
+	public string description = "";
+	public string id = "your_id_here";
+ 
         public Form1()
         {
             InitializeComponent();
@@ -27,11 +28,11 @@ namespace discord_rpc
 		{
 			if (string.IsNullOrEmpty(textBox1.Text))
 			{
-				nadpis = "nadpis";
+				header = "nadpis";
 			}
 			if (string.IsNullOrEmpty(textBox2.Text))
 			{
-				popis = "popis";
+				description = "popis";
 			}
 			if (string.IsNullOrEmpty(textBox3.Text))
 			{
@@ -67,8 +68,8 @@ namespace discord_rpc
 
 			RichPresence rp = new RichPresence()
 			{
-				Details = nadpis,
-				State = popis,
+				Details = header,
+				State = description,
 				Assets = new Assets()
 				{
 					LargeImageKey = "cat_mad",
@@ -102,12 +103,12 @@ namespace discord_rpc
 
         private void textBox1_TextChanged(object sender, EventArgs e)
 		{
-			nadpis = textBox1.Text;
+			header = textBox1.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-			popis = textBox2.Text;
+			description = textBox2.Text;
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
